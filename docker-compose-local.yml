@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  redis:
+    image: "redis:6.2.5"
+    container_name: "redis-sothea"
+    restart: always
+    ports:
+      - "6385:6379"
+  redis-commander:
+    image: "rediscommander/redis-commander:latest"
+    container_name: "redis-commander-sothea"
+    restart: always
+    environment:
+      - REDIS_HOSTS=local:redis:55013
+    ports:
+      - "8009:8081"

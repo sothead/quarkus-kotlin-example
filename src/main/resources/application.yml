@@ -1,0 +1,5 @@
+greeting:
+  message: wesh alors
+
+quarkus:
+  redis: redis://localhost:6386
