@@ -1,15 +1,21 @@
 package org.sothea.tsubasa.domain.service
 
-import org.sothea.tsubasa.domain.port.IObtainClubs
+import arrow.core.Validated
+import arrow.core.ValidatedNel
+import io.smallrye.mutiny.Uni
+import org.sothea.tsubasa.domain.error.TsubasaError
+import org.sothea.tsubasa.domain.model.Club
+import org.sothea.tsubasa.domain.port.obtain.IObtainClubs
+import org.sothea.tsubasa.domain.port.request.IRequestClubs
 import javax.inject.Singleton
 
 @Singleton
 class ClubService(
   private val iObtainClubs: IObtainClubs
-) {
+) : IRequestClubs {
 
-  fun getClubs() = iObtainClubs.findClubs()
+  override fun findClubs(): Validated<TsubasaError, Uni<Set<Club>>> = iObtainClubs.findClubs()
 
-  fun initialize() = iObtainClubs.initialize()
+  override fun initialize(): ValidatedNel<TsubasaError, Uni<Set<Club>>> = iObtainClubs.initialize()
 
 }

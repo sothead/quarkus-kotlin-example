@@ -17,7 +17,7 @@ sealed class TsubasaError(
     FUNCTIONAL("F"), TECHNICAL("T")
   }
 
-  fun computeErrorCode() =
+  fun computeErrorCode(): String =
     "${type.code}.$PROJECT_CODE.$KO_STATUS.$code"
 
 }

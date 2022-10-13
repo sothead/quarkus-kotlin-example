@@ -7,7 +7,7 @@ import io.smallrye.config.WithName
 @ConfigMapping(prefix = "greeting")
 interface GreetingConfig {
 
-    @WithName("message")
-    fun message(): String?
+  @WithName("message")
+  fun message(): String
 
 }

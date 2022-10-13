@@ -1,3 +1,3 @@
 package org.sothea.tsubasa.domain.error
 
-internal class FunctionalErrorTest
+internal class TechnicalErrorTest

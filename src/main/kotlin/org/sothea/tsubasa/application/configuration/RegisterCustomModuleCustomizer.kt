@@ -4,7 +4,7 @@ import arrow.integrations.jackson.module.registerArrowModule
 import com.fasterxml.jackson.annotation.JsonInclude.Include.NON_EMPTY
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.databind.SerializationFeature.WRAP_ROOT_VALUE
-import com.fasterxml.jackson.module.kotlin.KotlinModule
+import com.fasterxml.jackson.module.kotlin.registerKotlinModule
 import io.quarkus.jackson.ObjectMapperCustomizer
 import javax.inject.Singleton
 
@@ -15,7 +15,7 @@ class RegisterCustomModuleCustomizer : ObjectMapperCustomizer {
     objectMapper.apply {
       enable(WRAP_ROOT_VALUE)
         .setSerializationInclusion(NON_EMPTY)
-        .registerModule(KotlinModule())
+        .registerKotlinModule()
         .registerArrowModule()
     }
   }

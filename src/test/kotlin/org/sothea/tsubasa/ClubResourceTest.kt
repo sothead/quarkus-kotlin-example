@@ -7,13 +7,13 @@ import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
 
 @QuarkusTest
-class PlayerResourceTest {
+class ClubResourceTest {
 
   @Disabled
   @Test
   fun `first test`() {
     given()
-      .`when`().get("/tsubasa/characters")
+      .`when`().get("/tsubasa/clubs")
       .then()
       .statusCode(200)
       .body(`is`("Hello RESTEasy"))
