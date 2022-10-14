@@ -1,7 +1,6 @@
 package org.sothea.tsubasa.domain.service
 
 import arrow.core.Validated
-import arrow.core.ValidatedNel
 import io.smallrye.mutiny.Uni
 import org.sothea.tsubasa.domain.error.TsubasaError
 import org.sothea.tsubasa.domain.model.Club
@@ -16,6 +15,6 @@ class ClubService(
 
   override fun findClubs(): Validated<TsubasaError, Uni<Set<Club>>> = iObtainClubs.findClubs()
 
-  override fun initialize(): ValidatedNel<TsubasaError, Uni<Set<Club>>> = iObtainClubs.initialize()
+  override fun initialize(): Validated<TsubasaError, Uni<Set<Club>>> = iObtainClubs.initialize()
 
 }

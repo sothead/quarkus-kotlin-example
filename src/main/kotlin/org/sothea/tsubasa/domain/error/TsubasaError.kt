@@ -1,5 +1,7 @@
 package org.sothea.tsubasa.domain.error
 
+import com.fasterxml.jackson.annotation.JsonValue
+
 sealed class TsubasaError(
   private val type: ErrorType,
   open val code: String,
@@ -17,6 +19,7 @@ sealed class TsubasaError(
     FUNCTIONAL("F"), TECHNICAL("T")
   }
 
+  @JsonValue
   fun computeErrorCode(): String =
     "${type.code}.$PROJECT_CODE.$KO_STATUS.$code"
 
